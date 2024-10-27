@@ -6,8 +6,7 @@ let currentUser = "";
 function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    
-    // Simulated login for demonstration (always successful)
+
     if (username && password) {
         loggedIn = true;
         currentUser = username;
@@ -18,10 +17,9 @@ function login() {
 }
 
 function signup() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById("new-username").value;
+    const password = document.getElementById("new-password").value;
 
-    // Simulated signup for demonstration
     if (username && password) {
         loggedIn = true;
         currentUser = username;
@@ -32,14 +30,15 @@ function signup() {
 }
 
 function trackFitness() {
+    const result = document.getElementById("trackingResult");
+
     if (!loggedIn) {
-        alert("Please log in to track your fitness.");
+        result.textContent = "Please log in to track your fitness.";
         return;
     }
-    
+
     const steps = document.getElementById("steps").value;
-    const result = document.getElementById("trackingResult");
-    
+
     if (steps) {
         stepHistory.push({ user: currentUser, steps: parseInt(steps) });
         result.textContent = `Great job, ${currentUser}! You've tracked ${steps} steps today!`;
@@ -60,12 +59,12 @@ function updateStepHistory() {
 }
 
 function startChallenge() {
+    const message = document.getElementById("challengeMessage");
     if (!loggedIn) {
-        alert("Please log in to participate in challenges.");
+        message.textContent = "Please log in to participate in challenges.";
         return;
     }
-    
-    const message = document.getElementById("challengeMessage");
+
     message.textContent = `Challenge started! Let's stay active, ${currentUser}!`;
     updateLeaderboard();
 }
@@ -82,30 +81,32 @@ function updateLeaderboard() {
 }
 
 function joinClass(classType) {
+    const message = document.getElementById("classMessage");
     if (!loggedIn) {
-        alert("Please log in to join a class.");
+        message.textContent = "Please log in to join a class.";
         return;
     }
-    
-    const message = document.getElementById("classMessage");
+
     message.textContent = `You've joined the ${classType} class! Enjoy your session, ${currentUser}.`;
 }
 
 function postMessage() {
-    if (!loggedIn) {
-        alert("Please log in to post a message.");
-        return;
-    }
-
-    const messageInput = document.getElementById("messageInput").value;
     const communityPosts = document.getElementById("communityPosts");
+    const messageInput = document.getElementById("messageInput").value;
+
+    if (!loggedIn) {
+        document.getElementById("postMessageError").textContent = "Please log in to post a message.";
+        return;
+    } else {
+        document.getElementById("postMessageError").textContent = "";
+    }
 
     if (messageInput) {
         const li = document.createElement("li");
         li.textContent = `${currentUser}: ${messageInput}`;
         communityPosts.appendChild(li);
-        document.getElementById("messageInput").value = ""; // Clear input
+        document.getElementById("messageInput").value = "";
     } else {
-        alert("Please enter a message to post.");
+        document.getElementById("postMessageError").textContent = "Please enter a message to post.";
     }
 }
