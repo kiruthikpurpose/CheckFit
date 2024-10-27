@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckFit - Fitness Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CheckFit</h1>
+        <nav>
+            <ul>
+                <li><a href="#track">Track</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#classes">Fitness Classes</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="auth">
+            <h2>User Authentication</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <button onclick="signup()">Sign Up</button>
+            <p id="authMessage"></p>
+        </section>
+
+        <section id="track">
+            <h2>Track Your Fitness</h2>
+            <input type="number" id="steps" placeholder="Enter steps taken">
+            <button onclick="trackFitness()">Track</button>
+            <p id="trackingResult"></p>
+            <h3>Step History</h3>
+            <ul id="stepHistory"></ul>
+        </section>
+
+        <section id="challenges">
+            <h2>Fitness Challenges</h2>
+            <button onclick="startChallenge()">Start Challenge</button>
+            <p id="challengeMessage"></p>
+            <h3>Leaderboard</h3>
+            <ul id="leaderboard"></ul>
+        </section>
+
+        <section id="classes">
+            <h2>Virtual Fitness Classes</h2>
+            <ul>
+                <li><button onclick="joinClass('Yoga')">Join Yoga Class</button></li>
+                <li><button onclick="joinClass('HIIT')">Join HIIT Class</button></li>
+                <li><button onclick="joinClass('Pilates')">Join Pilates Class</button></li>
+            </ul>
+            <p id="classMessage"></p>
+        </section>
+
+        <section id="community">
+            <h2>Connect with the Community</h2>
+            <textarea id="messageInput" placeholder="Share your thoughts..."></textarea>
+            <button onclick="postMessage()">Post</button>
+            <h3>Community Posts</h3>
+            <ul id="communityPosts"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CheckFit. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
