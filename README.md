@@ -12,6 +12,4 @@ CheckFit is a web-based fitness tracking platform designed to help users monitor
 
 ## Technologies Used
 
-- **HTML**: For the structure of the web pages.
-- **CSS**: For styling and layout design.
-- **JavaScript**: For dynamic functionality and user interactions.
+HTML, CSS, JavaScript
